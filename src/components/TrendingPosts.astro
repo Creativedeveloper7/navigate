@@ -1,0 +1,44 @@
+---
+const trendingPosts = [
+  {
+    title: "Navigating Gen Z",
+    description: "Women's perspectives on early marriages vary",
+    image: "/images/post1.jpg",
+    link: "/posts/navigating-gen-z"
+  },
+  {
+    title: "Relationships in the Digital Age",
+    description: "Women's perspectives on early marriages vary",
+    image: "/images/post2.jpg",
+    link: "/posts/relationships-digital-age"
+  }
+];
+---
+
+<section class="py-16">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-secondary mb-8">Trending</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {trendingPosts.map(post => (
+        <a href={post.link} class="group">
+          <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform transform hover:scale-105">
+            <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+              <img 
+                src={post.image} 
+                alt={post.title}
+                class="w-full h-full object-cover"
+                onError="this.src='https://via.placeholder.com/800x450?text=Post+Image'"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-900 group-hover:text-secondary">
+                {post.title}
+              </h3>
+              <p class="mt-2 text-gray-600">{post.description}</p>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
